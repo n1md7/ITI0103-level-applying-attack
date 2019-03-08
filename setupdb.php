@@ -22,7 +22,7 @@ $DB_NAME = "{$username}_level_apply";
 $DB_USER_NAME = "{$username}_user_apply";
 $DB_USER_PASS = Generate::csha1("$DB_USER_NAME");
 
-$USER_PASS = Generate::sha512($DB_PASS.$DB_NAME);
+$USER_PASS = Generate::sha512($DB_PASS.$DB_NAME.'apply');
 
 $FLAG_P1 = substr($USER_PASS, 0, strlen($USER_PASS) / 2);
 $FLAG_P2 = substr($USER_PASS, strlen($USER_PASS) / 2);
