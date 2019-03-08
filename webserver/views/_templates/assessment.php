@@ -26,13 +26,13 @@
         <div class="tab-content pt-2 pl-1" id="pills-tabContent">
           <div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
             <h5>Task Description</h5>
-            <p class="blue-grey-text">Find vulnerability hole, gain access to database server and gather all the necessary information.</p>
+            <p class="blue-grey-text">Test.</p>
           </div>
           <div class="tab-pane fade" id="pills-flag" role="tabpanel" aria-labelledby="pills-flag-tab">
             <section class="tasks mb-5">
               <form method="post" action="<?php echo ASSESMENT; ?>" class="w-100 mx-0">
                 <input type="hidden" name="action" value="check">
-                <input type="hidden" class="csrf" name="csrf" value="<?php echo $init_csrf; ?>">
+                <input type="hidden" class="csrf" name="csrf">
                 <input type="hidden" name="task" value="1">
                 <div class="row">
                   <div class="col col-12 q-area">
@@ -58,7 +58,7 @@
             <section class="tasks mb-5">
               <form method="post" action="<?php echo ASSESMENT; ?>" class="w-100 mx-0">
                 <input type="hidden" name="action" value="check">
-                <input type="hidden" class="csrf" name="csrf" value="<?php echo $init_csrf; ?>">
+                <input type="hidden" class="csrf" name="csrf">
                 <input type="hidden" name="task" value="2">
                 <div class="row">
                   <div class="col col-12 q-area">
@@ -84,7 +84,7 @@
             <section class="tasks mb-5">
               <form method="post" action="<?php echo ASSESMENT; ?>" class="w-100 mx-0">
                 <input type="hidden" name="action" value="check">
-                <input type="hidden" class="csrf" name="csrf" value="<?php echo $init_csrf; ?>">
+                <input type="hidden" class="csrf" name="csrf">
                 <input type="hidden" name="task" value="3">
                 <div class="row">
                   <div class="col col-12 q-area">
@@ -110,7 +110,7 @@
             <section class="tasks mb-5">
               <form method="post" action="<?php echo ASSESMENT; ?>" class="w-100 mx-0">
                 <input type="hidden" name="action" value="check">
-                <input type="hidden" class="csrf" name="csrf" value="<?php echo $init_csrf; ?>">
+                <input type="hidden" class="csrf" name="csrf">
                 <input type="hidden" name="task" value="4">
                 <div class="row">
                   <div class="col col-12 q-area">

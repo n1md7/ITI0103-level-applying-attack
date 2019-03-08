@@ -13,12 +13,12 @@ cp /var/www/html/index.html /var/www/index.html
 #cut and move all webserver files to web root directory
 rm -rf /var/www/html/*
 mv /var/www/index.html /var/www/html/index.html
-cp -r /root/setup/ITI0103_SQLI_L1/webserver/* /var/www/html/
+cp -r /root/setup/ITI0103-level-applying-attack/webserver/* /var/www/html/
 rm -f /var/www/html/setup.sh
 #including hidden files
-cp -r /root/setup/ITI0103_SQLI_L1/webserver/.* /var/www/html/
+cp -r /root/setup/ITI0103-level-applying-attack/webserver/.* /var/www/html/
 #remove it
-rm -rf /root/setup/ITI0103_SQLI_L1/
+rm -rf /root/setup/ITI0103-level-applying-attack/
 
 php /var/www/html/setupdb.php >> /dev/null
 #remove loading spinner

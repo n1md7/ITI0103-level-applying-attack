@@ -32,7 +32,6 @@ class StudentModel{
 
 		switch ($post['action']) {
 			case 'check':
-			echo !isDefined($post['task']).(!isDefined($post['answer']) );
 				if( !isDefined($post['task']) || !isDefined($post['answer']) ){ 
                 	Encode::json([
                             'status' => 'error',

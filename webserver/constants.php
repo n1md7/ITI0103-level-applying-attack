@@ -25,6 +25,6 @@ define('HOMEINDEX', ROOT_PATH.'home/index');
 define('ASSESMENT', ROOT_PATH.'student/ajax');
 
 define('TITLE', 'SQLiLab');
-define('LAB_TYPE', 'Analyzing');
-define('TITLE_DESCR', 'SQLi challenge for level [ Analyzing ]');
+define('LAB_TYPE', 'Applying');
+define('TITLE_DESCR', 'SQLi challenge for level [ Applying ]');
 

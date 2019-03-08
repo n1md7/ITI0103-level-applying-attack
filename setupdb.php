@@ -18,8 +18,8 @@ $DB_PORT = '3306';
 
 $username = trim(file_get_contents($LOCAL?'../username.txt':'/var/www/username.txt'));
 
-$DB_NAME = "{$username}_level_analysis";
-$DB_USER_NAME = "{$username}_user_analysis";
+$DB_NAME = "{$username}_level_apply";
+$DB_USER_NAME = "{$username}_user_apply";
 $DB_USER_PASS = Generate::csha1("$DB_USER_NAME");
 
 $USER_PASS = Generate::sha512($DB_PASS.$DB_NAME);
