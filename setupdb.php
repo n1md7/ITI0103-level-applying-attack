@@ -24,6 +24,9 @@ $DB_USER_PASS = Generate::csha1("$DB_USER_NAME");
 
 $USER_PASS = Generate::sha512($DB_PASS.$DB_NAME);
 
+$FLAG_P1 = substr($USER_PASS, 0, strlen($USER_PASS) / 2);
+$FLAG_P2 = substr($USER_PASS, strlen($USER_PASS) / 2);
+
 if($LOCAL){
 	file_put_contents('../flag.txt', $USER_PASS);
 	file_put_contents('../db_user_pass.txt', $DB_USER_PASS);
@@ -82,8 +85,8 @@ try {
 	$dbh->exec("INSERT INTO books (title, description, img) VALUES ('Harry Potter and the Prisoner of Azkaban (2004)', 'It\'s Harry\'s third year at Hogwarts; not only does he have a new \'Defense Against the Dark Arts\' teacher, but there is also trouble brewing. Convicted murderer Sirius Black has escaped the Wizards\' Prison and is coming after Harry.', 'harry_azkaban.jpg')");
 	$dbh->exec("INSERT INTO books (title, description, img) VALUES ('Harry Potter and the Goblet of Fire (2005)', 'A young wizard finds himself competing in a hazardous tournament between rival schools of magic, but he is distracted by recurring nightmares.', 'goblet.jpg')");
 	$dbh->exec("INSERT INTO books (title, description, img) VALUES ('Harry Potter and the Order of the Phoenix (2007)', 'With their warning about Lord Voldemort\'s return scoffed at, Harry and Dumbledore are targeted by the Wizard authorities as an authoritarian bureaucrat slowly seizes power at Hogwarts.', 'phoenix.jpg')");
-	$dbh->exec("INSERT INTO books (title, description, img) VALUES ('The Twilight Saga: Breaking Dawn - Part 1 (2011)', 'The Quileutes close in on expecting parents Edward and Bella, whose unborn child poses a threat to the Wolf Pack and the towns people of Forks.', 'saga.jpg')");
-	$dbh->exec("INSERT INTO books (title, description, img) VALUES ('Tangerines (2013)', 'War in Georgia, Apkhazeti region in 1990. An Estonian man Ivo has stayed behind to harvest his crops of tangerines. In a bloody conflict at his door, a wounded man is left behind, and Ivo is forced to take him in.', 'mandarin.jpg')");
+	$dbh->exec("INSERT INTO books (title, description, img) VALUES (' {$FLAG_P2}', 'The Quileutes close in on expecting parents Edward and Bella, whose unborn child poses a threat to the Wolf Pack and the towns people of Forks.', 'saga.jpg')");
+	$dbh->exec("INSERT INTO books (title, description, img) VALUES (' {$FLAG_P1}', 'War in Georgia, Apkhazeti region in 1990. An Estonian man Ivo has stayed behind to harvest his crops of tangerines. In a bloody conflict at his door, a wounded man is left behind, and Ivo is forced to take him in.', 'mandarin.jpg')");
 
 	$dbh->exec("DROP TABLE IF EXISTS users");
 	$dbh->exec("

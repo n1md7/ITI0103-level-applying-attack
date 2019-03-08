@@ -1,7 +1,7 @@
 <?php
 	
 if(defined('LOCALHOST') && LOCALHOST == True){
-        define("ROOT_PATH", "/ITI0103-project/webserver/");
+        define("ROOT_PATH", "/ITI0103-level-applying/webserver/");
 }else{
         define("ROOT_PATH", "/");
 }

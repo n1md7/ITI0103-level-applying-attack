@@ -38,8 +38,9 @@ class StudentModel{
                             'msg' => 'Gimme more data'
                         ]);
                 }
-                //max tasks 10
-                if(!in_array((int)$post['task'], range(1, 10))){
+                $lab = require('./questions.php');
+                //white list according keys from lab tasks
+                if(!in_array((int)$post['task'], range(0, count($lab['questions']) - 1))){
                 	Encode::json([
                             'status' => 'error',
                             'msg' => 'task out of range'
@@ -48,28 +49,15 @@ class StudentModel{
 
                 $status = 'wrong';
                 $task = (int)$post['task'];
-                $answer = $post['answer'];
-                switch(true){
-                	case $task === 1 && $answer === 'information_schema':
-                		$status = 'correct';
-                	break;
-                	case $task === 2 && $answer === DB_NAME:
-                		$status = 'correct';
-                	break;
-                	case $task === 3 && $answer === 'users':
-                		$status = 'correct';
-                	break;
-                	case $task === 4:
-					    if(file_exists('../../flag.txt')){
-					        $flag = trim(file_get_contents('../../flag.txt'));
-					    }else if(file_exists('/var/www/flag.txt')){
-					        $flag = trim(file_get_contents('/var/www/flag.txt'));
-					    }
-					    if($answer === $flag){
+                $answer = trim($_POST['answer']);
+                foreach ($lab['questions'] as $key => $question) {
+                 	if($task === $key){
+                 		if($lab['answers'][$key] === $answer){
 	                		$status = 'correct';
-					    }
-                	break;
-                }
+	                		break;
+                 		}
+                 	}
+                } 
 
                 $this->db->query("INSERT INTO logs (student_name, challenge_level, task_number, status, update_time, answered) 
                 	VALUES (:student_name, :challenge_level, :task_number, :status, :update_time, :answered)");

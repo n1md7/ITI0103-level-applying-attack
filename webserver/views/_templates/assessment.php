@@ -1,3 +1,4 @@
+<?php $lab = require('./questions.php'); ?>
 <!-- Full Height Modal Right -->
 <div class="modal fade left" id="labInfoBtn" tabindex="-1" role="dialog" aria-labelledby="labInfoLabel" aria-hidden="true">
   <div class="modal-dialog modal-full-height modal-left modal-md" role="document">
@@ -26,116 +27,43 @@
         <div class="tab-content pt-2 pl-1" id="pills-tabContent">
           <div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
             <h5>Task Description</h5>
-            <p class="blue-grey-text">Test.</p>
+            <p class="blue-grey-text"><?php echo $lab['description']; ?></p>
           </div>
           <div class="tab-pane fade" id="pills-flag" role="tabpanel" aria-labelledby="pills-flag-tab">
-            <section class="tasks mb-5">
-              <form method="post" action="<?php echo ASSESMENT; ?>" class="w-100 mx-0">
-                <input type="hidden" name="action" value="check">
-                <input type="hidden" class="csrf" name="csrf">
-                <input type="hidden" name="task" value="1">
-                <div class="row">
-                  <div class="col col-12 q-area">
-                    <p class="grey-text">What is the default database name which provide information about all of the tables?</p>
-                    <div class="alert alert-danger fade show" role="alert" style="display: none;">
-                      <strong>Error!</strong> This answer is wrong.
-                    </div>
-                    <div class="alert alert-success fade show" role="alert" style="display: none;">
-                      <strong>Success!</strong> You found it.
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-8 pr-0">
-                    <input type="text" name="answer" required="" autocomplete="off" class="form-control" placeholder="Database name">
-                  </div>
-                  <div class="col-4 pl-1">
-                    <button type="submit" class="btn btn-success m-0 w-100 font-weight-bold">Validate</button>
-                  </div>
-                </div>
-              </form>
-            </section>
-            <section class="tasks mb-5">
-              <form method="post" action="<?php echo ASSESMENT; ?>" class="w-100 mx-0">
-                <input type="hidden" name="action" value="check">
-                <input type="hidden" class="csrf" name="csrf">
-                <input type="hidden" name="task" value="2">
-                <div class="row">
-                  <div class="col col-12 q-area">
-                    <p class="grey-text">What is the database name where login information is stored?</p>
-                    <div class="alert alert-danger fade show" role="alert" style="display: none;">
-                      <strong>Error!</strong> This answer is wrong.
-                    </div>
-                    <div class="alert alert-success fade show" role="alert" style="display: none;">
-                      <strong>Success!</strong> You found it.
+            <?php foreach ($lab['questions'] as $key => $question): ?>
+              <section class="tasks mb-5">
+                <form method="post" action="<?php echo ASSESMENT; ?>" class="w-100 mx-0">
+                  <input type="hidden" name="action" value="check">
+                  <input type="hidden" class="csrf" name="csrf">
+                  <input type="hidden" name="task" value="<?php echo $key; ?>">
+                  <div class="row">
+                    <div class="col col-12 q-area">
+                      <p class="grey-text"><?php echo $question; ?></p>
+                      <div class="alert alert-danger fade show" role="alert" style="display: none;">
+                        <strong>Error!</strong> This answer is wrong.
+                      </div>
+                      <div class="alert alert-success fade show" role="alert" style="display: none;">
+                        <strong>Success!</strong> You found it.
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="row">
-                  <div class="col-8 pr-0">
-                    <input type="text" name="answer" required="" autocomplete="off" class="form-control" placeholder="Database name">
-                  </div>
-                  <div class="col-4 pl-1">
-                    <button type="submit" class="btn btn-success m-0 w-100 font-weight-bold">Validate</button>
-                  </div>
-                </div>
-              </form>
-            </section>
-            <section class="tasks mb-5">
-              <form method="post" action="<?php echo ASSESMENT; ?>" class="w-100 mx-0">
-                <input type="hidden" name="action" value="check">
-                <input type="hidden" class="csrf" name="csrf">
-                <input type="hidden" name="task" value="3">
-                <div class="row">
-                  <div class="col col-12 q-area">
-                    <p class="grey-text">What is the table name where login information is stored?</p>
-                    <div class="alert alert-danger fade show" role="alert" style="display: none;">
-                      <strong>Error!</strong> This answer is wrong.
+                  <div class="row">
+                    <div class="col-8 pr-0">
+                      <input type="text" name="answer" required="" autocomplete="off" class="form-control" placeholder="Answer here...">
                     </div>
-                    <div class="alert alert-success fade show" role="alert" style="display: none;">
-                      <strong>Success!</strong> You found it.
+                    <div class="col-4 pl-1">
+                      <button type="submit" class="btn btn-success m-0 w-100 font-weight-bold">Validate</button>
                     </div>
                   </div>
-                </div>
-                <div class="row">
-                  <div class="col-8 pr-0">
-                    <input type="text" name="answer" required="" autocomplete="off" class="form-control" placeholder="Table name">
-                  </div>
-                  <div class="col-4 pl-1">
-                    <button type="submit" class="btn btn-success m-0 w-100 font-weight-bold">Validate</button>
-                  </div>
-                </div>
-              </form>
-            </section>
-            <section class="tasks mb-5">
-              <form method="post" action="<?php echo ASSESMENT; ?>" class="w-100 mx-0">
-                <input type="hidden" name="action" value="check">
-                <input type="hidden" class="csrf" name="csrf">
-                <input type="hidden" name="task" value="4">
-                <div class="row">
-                  <div class="col col-12 q-area">
-                    <p class="grey-text">Find and submit the flag which is the password hash of the user <b>admin</b>.</p>
-                    <div class="alert alert-danger fade show" role="alert" style="display: none;">
-                      <strong>Error!</strong> This answer is wrong.
-                    </div>
-                    <div class="alert alert-success fade show" role="alert" style="display: none;">
-                      <strong>Success!</strong> You found it.
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-8 pr-0">
-                    <input type="text" name="answer" required="" autocomplete="off" class="form-control" placeholder="Flag. Format HTB{...}">
-                  </div>
-                  <div class="col-4 pl-1">
-                    <button type="submit" class="btn btn-success m-0 w-100 font-weight-bold">Validate</button>
-                  </div>
-                </div>
-              </form>
-            </section>
+                </form>
+              </section>
+            <?php endforeach; ?>
           </div>
           <div class="tab-pane fade" id="pills-hint" role="tabpanel" aria-labelledby="pills-hint-tab">
-            <p class="text-center">Try 2 Google 😁</p>
+            <h5>Hints</h5>
+            <?php foreach ($lab['hints'] as $key => $hint): ?>
+              <p class="mb-2 blue-grey-text text-small"><?php echo '#'.($key+1).'. '.$hint; ?></p>
+            <?php endforeach; ?>
           </div>
         </div>
       </div>
