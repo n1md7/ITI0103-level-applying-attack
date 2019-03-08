@@ -9,7 +9,7 @@
         </p>
         <br><br>
         <p>
-            For more details please click <i>Lab info</i>
+            For more details please click <i data-toggle="modal" data-target="#labInfoBtn">Lab info</i>
         </p>
     </div>
 </div>

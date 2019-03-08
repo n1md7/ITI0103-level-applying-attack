@@ -20,6 +20,7 @@ define('USER_SIGN_OUT', ROOT_PATH.'user/signout');
 define('USER_SIGN_IN', ROOT_PATH.'user/signin');
 define('USER_SIGN_UP', ROOT_PATH.'user/signup');
 define('USER_AJAX', ROOT_PATH.'user/ajax');
+define('USER_INDEX', ROOT_PATH.'user');
 define('HOME_AJAX', ROOT_PATH.'home/ajax');
 define('HOMEINDEX', ROOT_PATH.'home/index');
 define('ASSESMENT', ROOT_PATH.'student/ajax');
