@@ -16,7 +16,7 @@
   </head>
   <body>
   <!-- nav start -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <a class="navbar-brand" href="#">SQLi</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -54,7 +54,7 @@
 
   <!-- nav end -->
 
-    <div class="container-fluid" style="margin-top: 70px;">
+    <div class="container-fluid" style="margin-top: 140px;">
       <?php Messages::display(); ?>
       <?php require($view); ?>
       <?php require('./views/_templates/assessment.php'); ?>
