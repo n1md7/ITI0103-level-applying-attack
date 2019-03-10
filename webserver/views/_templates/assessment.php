@@ -90,6 +90,7 @@
           url: $form.attr('action'),
           success: function(data){
               $('.csrf').val(data.csrf);
+              $('meta[name=csrf]').attr('content', data.csrf);
               if(typeof data.status !== "undefined"){
                 if(typeof data.msg !== "undefined" && data.msg === 'correct'){
                   $form.find('.alert.alert-success').show();
@@ -122,11 +123,12 @@
       },
       url: '<?php echo ASSESMENT; ?>',
       success: function(res){
+          $('.csrf').val(res.csrf);
           $('meta[name=csrf]').attr('content', res.csrf);
           if(typeof res.status !== "undefined"){
             if(typeof res.data !== "undefined"){
               $('.tasks').each(function(i){
-                if(res.data.filter(x => x.task_number*1 === i+1).length !== 0){
+                if(res.data.filter(x => x.task_number*1 === i).length !== 0){
                   $(this).find('.q-area').find('.alert-info').remove();
                   $(this).find('.q-area').append(`
                     <div class="alert alert-info fade show" role="alert">
